@@ -1,3 +1,5 @@
+import {format} from 'date-fns'
+
 export default {
   name: 'oeuvre',
   type: 'document',
@@ -6,7 +8,8 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Nom'
+      title: 'Nom',
+      description: 'Nom de l oeuvre'
     },
     {
       name: 'slug',
@@ -17,6 +20,12 @@ export default {
         source: 'name',
         maxLength: 96
       }
+    },
+    {
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Published at',
+      description: 'This can be used to schedule post for publishing'
     },
     {
       name: 'categories',
@@ -45,9 +54,18 @@ export default {
   preview: {
     select: {
       title: 'name',
-      subtitle: 'slug.current',
+      publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'image'
+    },
+    prepare ({title = 'No name', publishedAt, slug = {}, media}) {
+      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const path = `/${dateSegment}/${slug.current}/`
+      return {
+        title,
+        media,
+        subtitle: publishedAt ? path : 'Missing publishing date'
+      }
     }
   }
 }

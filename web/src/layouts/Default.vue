@@ -6,16 +6,22 @@
       </div>
 
       <div class="header__right">
+        <g-link to="/artwork/">Artwork</g-link>
+        <g-link to="/exhibitions/">Exhibitions</g-link>
+        <g-link to="/biography/">Biography</g-link>
+        <g-link to="/press-media/">Press-media</g-link>
+        <g-link to="/contact/">Contact</g-link>
         <toggle-theme />
       </div>
     </header>
+
 
     <main class="main">
       <slot />
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
+      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. Olivier-cyr Noël</span>
       <span class="footer__links">
         Powered by
         <a href="//gridsome.org">Gridsome</a> &amp;
@@ -52,6 +58,7 @@ export default {
   padding: 0 calc(var(--space) / 2);
   top: 0;
   z-index: 10;
+  background-color: #fff;
 
   &__left,
   &__right {
@@ -63,6 +70,17 @@ export default {
     //Make header sticky for large screens
     position: sticky;
     width: 100%;
+  }
+
+  a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #000;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -13,16 +13,27 @@ const clientConfig = require('./client-config')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  siteName: 'Gridsome Blog Starter',
+  siteName: 'Olivier-Cyr Noel',
   siteDescription:
-    'A simple, hackable & minimalistic starter for Gridsome that uses structured content from Sanity.io.',
+    'A portfolio of art',
 
   templates: {
-    // SanityPost: '/:slug__current',
+    // SanityPost: [
+    //   {
+    //     path: '/:slug__current',
+    //     component: './src/templates/SanityPost.vue'
+    //   }
+    // ],
     SanityOeuvre: [
       {
-        path: '/:name',
+        path: '/oeuvres/:name',
         component: './src/templates/SanityOeuvre.vue'
+      }
+    ],
+    SanityCategory: [
+      {
+        path: '/:slug__current',
+        component: './src/templates/SanityCategory.vue'
       }
     ]
   },

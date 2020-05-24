@@ -2,36 +2,30 @@
   <Layout>
     <div class="post-title">
       <h1 class="post-title__text">{{ $page.oeuvre.name }}</h1>
-      <h2>Test</h2>
 
       <!-- <post-meta :post="$page.post" v-if="$page.post" /> -->
     </div>
 
     <div class="post content-box">
       <div class="post__header">
-        <!-- <img
+        <img
           alt="Cover image"
-          v-if="$page.post.mainImage"
-          :src="$urlForImage($page.post.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
-        /> -->
+          v-if="$page.oeuvre.image"
+          :src="$urlForImage($page.oeuvre.image, $page.metadata.sanityOptions).width(600).auto('format').url()"
+        />
       </div>
 
-      <!-- <block-content
+      <block-content
         class="post__content"
-        :blocks="$page.post._rawBody"
-        v-if="$page.post._rawBody"
-      /> -->
+        :blocks="$page.oeuvre._rawBio"
+        v-if="$page.oeuvre._rawBio"
+      />
 
       <div class="post__footer">
-        <!-- <post-tags :post="$page.post" v-if="$page.post" /> -->
+        <!-- <post-tags :post="$oeuvre.categories" v-if="$oeuvre.categories" /> -->
       </div>
     </div>
 
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-    </div>
-
-    <author-card class="post-author" />
   </Layout>
 </template>
 
@@ -72,9 +66,30 @@ query Oeuvre ($id: ID!) {
   }
   oeuvre: sanityOeuvre (id: $id) {
     name
+    _rawBio
     categories {
       id
       title
+    }
+    image {
+      asset {
+        _id
+        url
+      }
+      caption
+      alt
+      hotspot {
+        x
+        y
+        height
+        width
+      }
+      crop {
+        top
+        bottom
+        left
+        right
+      }
     }
   }
 }

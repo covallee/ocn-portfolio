@@ -10,6 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import oeuvre from './documents/oeuvre'
+import page from './documents/page'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -32,6 +33,7 @@ export default createSchema({
     category,
     author,
     oeuvre,
+    page,
     mainImage,
     authorReference,
     bodyPortableText,

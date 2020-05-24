@@ -10,5 +10,17 @@ module.exports = function(api) {
   api.loadSource(store => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api
     store.addMetadata('sanityOptions', clientConfig.sanity)
+
+    const oeuvreCollection = store.getCollection('SanityOeuvre')
+    const oeuvres = oeuvreCollection.data()
+    // Augment 'Categories' - Add array of references to related posts
+    store.addSchemaResolvers({
+      SanityCategory: {
+        oeuvres: {
+          type: '[SanityOeuvre]',
+          resolve: o => oeuvres.filter(p => p.categories && p.categories.find(c => c._ref === o.id))
+        }
+      }
+    })
   })
 }

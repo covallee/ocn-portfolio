@@ -3,19 +3,19 @@
     <div class="post-card__header">
       <g-image
         alt="Cover image"
-        v-if="post.mainImage"
+        v-if="post.image"
         class="post-card__image"
-        :src="$urlForImage(post.mainImage, $page.metadata.sanityOptions).height(440).width(800).auto('format').url()"
+        :src="$urlForImage(post.image, $page.metadata.sanityOptions).height(440).width(800).auto('format').url()"
       />
     </div>
     <div class="post-card__content">
-      <h2 class="post-card__title" v-html="post.title" />
-      <block-content :blocks="post._rawExcerpt" />
+      <h2 class="post-card__title" v-html="post.name" />
+      <!-- <block-content :blocks="post._rawBio" /> -->
 
       <post-meta class="post-card__meta" :post="post" />
       <post-tags class="post-card__tags" :post="post" />
 
-      <g-link class="post-card__link" :to="post.slug.current">Link</g-link>
+      <g-link class="post-card__link" :to="'oeuvres/' + post.slug.current">Link</g-link>
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
   },
   props: {
     post: Object
-  }
+  },
 }
 </script>
 
