@@ -1,19 +1,6 @@
 <template>
   <div id="app">
-    <header class="header">
-      <div class="header__left">
-        <header-logo v-if="showLogo" />
-      </div>
-
-      <div class="header__right">
-        <g-link to="/artwork/">Artwork</g-link>
-        <g-link to="/exhibitions/">Exhibitions</g-link>
-        <g-link to="/biography/">Biography</g-link>
-        <g-link to="/press-media/">Press-media</g-link>
-        <g-link to="/contact/">Contact</g-link>
-        <toggle-theme />
-      </div>
-    </header>
+    <header-menu :show-logo="showLogo" />
 
 
     <main class="main">
@@ -32,8 +19,7 @@
 </template>
 
 <script>
-import HeaderLogo from '~/components/HeaderLogo'
-import ToggleTheme from '~/components/ToggleTheme'
+import HeaderMenu from '~/components/HeaderMenu'
 
 export default {
   props: {
@@ -43,46 +29,13 @@ export default {
     }
   },
   components: {
-    HeaderLogo,
-    ToggleTheme
+    HeaderMenu
   }
 }
 </script>
 
 <style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
-  top: 0;
-  z-index: 10;
-  background-color: #fff;
 
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    position: sticky;
-    width: 100%;
-  }
-
-  a {
-    padding: 0 10px;
-    text-decoration: none;
-    color: #000;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
-}
 
 .main {
   margin: 0 auto;

@@ -80,10 +80,5 @@ export default {
 </script>
 
 <style lang="scss">
-.sub-nav {
-  a {
-    padding: 0 10px;
 
-  }
-}
 </style>
