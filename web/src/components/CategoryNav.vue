@@ -18,6 +18,11 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.sub-nav {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
 .sub-nav__links {
   display: flex;
   flex-wrap: wrap;
@@ -27,8 +32,9 @@ a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: #BADA55;
-  padding: 10px 15px;
+  background-color: var(--bg-color);
+  padding: 5px 15px;
   border-radius: 5px;
+  color: var(--body-color);
 }
 </style>
