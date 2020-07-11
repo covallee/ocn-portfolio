@@ -11,6 +11,7 @@ import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import oeuvre from './documents/oeuvre'
 import page from './documents/page'
+import video from './documents/video'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -34,6 +35,7 @@ export default createSchema({
     author,
     oeuvre,
     page,
+    video,
     mainImage,
     authorReference,
     bodyPortableText,

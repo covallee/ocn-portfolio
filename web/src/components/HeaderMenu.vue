@@ -10,9 +10,10 @@
           </button>
         </div>
         <div class="navbar-menu" :class="{'is-active': isOpen}">
-            <g-link class="navbar-item" to="/artwork/">Artwork</g-link>
+            <g-link class="navbar-item" to="/artwork/">Artworks</g-link>
             <g-link class="navbar-item" to="/exhibitions/">Exhibitions</g-link>
             <g-link class="navbar-item" to="/biography/">Biography</g-link>
+            <g-link class="navbar-item" to="/video/">Videos</g-link>
             <g-link class="navbar-item" to="/press-media/">Press-media</g-link>
             <g-link class="navbar-item" to="/contact/">Contact</g-link>
             <toggle-theme />
